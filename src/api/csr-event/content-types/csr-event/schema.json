@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "csr_events",
+  "info": {
+    "singularName": "csr-event",
+    "pluralName": "csr-events",
+    "displayName": "CSR Event"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "eventDate": {
+      "type": "date",
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "displayOrder": {
+      "type": "integer"
+    }
+  }
+}

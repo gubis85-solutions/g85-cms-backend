@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_feeds",
+  "info": {
+    "singularName": "news-feed",
+    "pluralName": "news-feeds",
+    "displayName": "NewsFeed"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Company Insight",
+        "Security Insight"
+      ]
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "featuredImage": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "publishDate": {
+      "type": "date"
+    }
+  }
+}

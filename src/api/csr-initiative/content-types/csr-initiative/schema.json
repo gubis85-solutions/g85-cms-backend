@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "csr_initiatives",
+  "info": {
+    "singularName": "csr-initiative",
+    "pluralName": "csr-initiatives",
+    "displayName": "CSR Initiative"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "text"
+    },
+    "focus": {
+      "type": "string"
+    },
+    "displayOrder": {
+      "type": "integer"
+    },
+    "pubDate": {
+      "type": "date"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

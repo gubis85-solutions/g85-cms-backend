@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_enquiries",
+  "info": {
+    "singularName": "contact-enquiry",
+    "pluralName": "contact-enquiries",
+    "displayName": "contact-enquiry"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "businessName": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    },
+    "serviceInterest": {
+      "type": "string"
+    },
+    "productInterest": {
+      "type": "string"
+    },
+    "message": {
+      "type": "text"
+    },
+    "submittedAt": {
+      "type": "date"
+    }
+  }
+}

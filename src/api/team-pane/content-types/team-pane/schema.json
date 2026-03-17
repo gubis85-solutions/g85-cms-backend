@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "team_panes",
+  "info": {
+    "singularName": "team-pane",
+    "pluralName": "team-panes",
+    "displayName": "team-pane"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "key": {
+      "type": "enumeration",
+      "required": true,
+      "default": "department_heads",
+      "enum": [
+        "executive_leadership",
+        "department_heads"
+      ]
+    },
+    "titlePrefix": {
+      "type": "string"
+    },
+    "titleAccent": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "displayOrder": {
+      "type": "integer"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "team_members": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::team-member.team-member",
+      "mappedBy": "pane"
+    }
+  }
+}
