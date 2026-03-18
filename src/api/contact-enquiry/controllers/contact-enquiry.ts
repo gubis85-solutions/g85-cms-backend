@@ -53,7 +53,7 @@ export default factories.createCoreController(
            if (error?.stack) {
             strapi.log.error(error.stack);
          }
-        return ctx.internalServerError("Enquiry saved, but email sending failed.");
+        
       }
       return response;
     },
