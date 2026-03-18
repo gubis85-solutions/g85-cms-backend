@@ -574,6 +574,38 @@ export interface ApiCsrInitiativeCsrInitiative
   };
 }
 
+export interface ApiGalleryItemGalleryItem extends Struct.CollectionTypeSchema {
+  collectionName: 'gallery_items';
+  info: {
+    displayName: 'Gallery Item';
+    pluralName: 'gallery-items';
+    singularName: 'gallery-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    altText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    displayOrder: Schema.Attribute.Integer;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::gallery-item.gallery-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNewsFeedNewsFeed extends Struct.CollectionTypeSchema {
   collectionName: 'news_feeds';
   info: {
@@ -1206,6 +1238,7 @@ declare module '@strapi/strapi' {
       'api::contact-enquiry.contact-enquiry': ApiContactEnquiryContactEnquiry;
       'api::csr-event.csr-event': ApiCsrEventCsrEvent;
       'api::csr-initiative.csr-initiative': ApiCsrInitiativeCsrInitiative;
+      'api::gallery-item.gallery-item': ApiGalleryItemGalleryItem;
       'api::news-feed.news-feed': ApiNewsFeedNewsFeed;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::team-pane.team-pane': ApiTeamPaneTeamPane;
