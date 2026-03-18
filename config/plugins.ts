@@ -1,6 +1,8 @@
 import type { Core } from "@strapi/strapi";
 
-const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({
+const config = ({
+  env,
+}: Core.Config.Shared.ConfigParams): Core.Config.Plugin => ({
   email: {
     config: {
       provider: "nodemailer",
@@ -12,6 +14,9 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
           user: env("SMTP_USERNAME"),
           pass: env("SMTP_PASSWORD"),
         },
+        requireTLS: true,
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
       },
       settings: {
         defaultFrom: env("SMTP_FROM"),

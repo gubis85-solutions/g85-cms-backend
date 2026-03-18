@@ -41,11 +41,20 @@ export default factories.createCoreController(
             </div>
           `,
         });
-      } catch (error) {
-        strapi.log.error("Email sending failed", error);
+      } catch (error: any) {
+          console.error("EMAIL SEND FAILED FULL ERROR:", error);
+          strapi.log.error(`Email sending failed: ${error?.message || error}`);
+          if (error?.code) {
+           strapi.log.error(`Email error code: ${error.code}`);
+         }
+           if (error?.command) {
+           strapi.log.error(`Email error command: ${error.command}`);
+         }
+           if (error?.stack) {
+            strapi.log.error(error.stack);
+         }
         return ctx.internalServerError("Enquiry saved, but email sending failed.");
       }
-
       return response;
     },
   })
