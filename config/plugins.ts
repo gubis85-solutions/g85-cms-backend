@@ -5,17 +5,17 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
     config: {
       provider: "nodemailer",
       providerOptions: {
-        host: "mail.gubis85.co.za",
-        port: 587,
-        secure: false,
+        host: env("SMTP_HOST"),
+        port: env.int("SMTP_PORT", 587),
+        secure: env.bool("SMTP_SECURE", false),
         auth: {
           user: env("SMTP_USERNAME"),
           pass: env("SMTP_PASSWORD"),
         },
       },
       settings: {
-        defaultFrom: "princeb@gubis85.co.za",
-        defaultReplyTo: "princeb@gubis85.co.za",
+        defaultFrom: env("SMTP_FROM"),
+        defaultReplyTo: env("SMTP_REPLY_TO"),
       },
     },
   },
