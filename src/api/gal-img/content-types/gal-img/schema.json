@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gal_imgs",
+  "info": {
+    "singularName": "gal-img",
+    "pluralName": "gal-imgs",
+    "displayName": "gal_img"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

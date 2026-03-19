@@ -574,32 +574,28 @@ export interface ApiCsrInitiativeCsrInitiative
   };
 }
 
-export interface ApiGalleryItemGalleryItem extends Struct.CollectionTypeSchema {
-  collectionName: 'gallery_items';
+export interface ApiGalImgGalImg extends Struct.CollectionTypeSchema {
+  collectionName: 'gal_imgs';
   info: {
-    displayName: 'Gallery Item';
-    pluralName: 'gallery-items';
-    singularName: 'gallery-item';
+    displayName: 'gal_img';
+    pluralName: 'gal-imgs';
+    singularName: 'gal-img';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
-    altText: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    displayOrder: Schema.Attribute.Integer;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    isActive: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::gallery-item.gallery-item'
+      'api::gal-img.gal-img'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1238,7 +1234,7 @@ declare module '@strapi/strapi' {
       'api::contact-enquiry.contact-enquiry': ApiContactEnquiryContactEnquiry;
       'api::csr-event.csr-event': ApiCsrEventCsrEvent;
       'api::csr-initiative.csr-initiative': ApiCsrInitiativeCsrInitiative;
-      'api::gallery-item.gallery-item': ApiGalleryItemGalleryItem;
+      'api::gal-img.gal-img': ApiGalImgGalImg;
       'api::news-feed.news-feed': ApiNewsFeedNewsFeed;
       'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::team-pane.team-pane': ApiTeamPaneTeamPane;

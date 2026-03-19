@@ -8,13 +8,12 @@ const config = ({
       provider: "nodemailer",
       providerOptions: {
         host: env("SMTP_HOST"),
-        port: env.int("SMTP_PORT", 465),
-        secure: env.bool("SMTP_SECURE", true),
+        port: env.int("SMTP_PORT", 587),
+        secure: env.bool("SMTP_SECURE", false),
         auth: {
           user: env("SMTP_USERNAME"),
           pass: env("SMTP_PASSWORD"),
         },
-        requireTLS: true,
         connectionTimeout: 10000,
         greetingTimeout: 10000,
       },
