@@ -16,6 +16,9 @@ const config = ({
         },
         connectionTimeout: 10000,
         greetingTimeout: 10000,
+        tls: {
+          rejectUnauthorized: false,
+        },
       },
       settings: {
         defaultFrom: env("SMTP_FROM"),
